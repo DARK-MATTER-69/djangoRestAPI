@@ -39,11 +39,18 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     #party app
     'rest_framework',
-    
-    
+
     # app
     'api',
 ]
+
+REST_FRAMEWORK = {
+    'DEFAULT_PARSE_CLASSES' : [
+        'rest_framework.parses.JSONParser',
+        'rest_framework.parses.FormParser',
+        'rest_framework.renderers.BrowsableAPIRenderer',
+    ],
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
