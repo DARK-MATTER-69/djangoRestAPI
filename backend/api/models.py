@@ -6,6 +6,7 @@ class Produit(models.Model):
     description = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+    auteur = models.ForeignKey('auth.user', on_delete=models.CASCADE, null=True, blank=True)
     
     def __str__(self):
         return self.name

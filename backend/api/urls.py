@@ -2,9 +2,11 @@ from django.urls import path, include
 from .views import home
 from api.api.mixins import ProductListView, ProductDetailView, ProductUpdateView,ProductDestroyView,ProductCreateView,CombineApiView
 from .api.api import produit_api_view 
+from rest_framework.authtoken.views import obtain_auth_token 
 
 
 urlpatterns = [
+    path('api_auth_token/', obtain_auth_token, name='auth_token'),
     path('', home, name='home'),
     path('product/', produit_api_view, name= 'product_api'),
     path('product/<int:pk>/', produit_api_view, name= 'product_api'),
